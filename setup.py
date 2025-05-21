@@ -1,24 +1,24 @@
 from setuptools import setup, find_packages
-from gitflow import __version__
 
 with open("README.md", "r", encoding="utf-8") as fh:
     long_description = fh.read()
 
 setup(
     name="gitflow-cli",
-    version=__version__,
-    author="GitFlow Developer",
-    author_email="example@example.com",
+    version="0.1.0",
+    author="Basil Shaji",
+    author_email="your.email@example.com",
     description="A simple and powerful GitHub CLI helper tool",
     long_description=long_description,
     long_description_content_type="text/markdown",
-    url="https://github.com/yourusername/gitflow",
+    url="https://github.com/basilshaji/gitflow",
     packages=find_packages(),
     classifiers=[
         "Programming Language :: Python :: 3",
         "License :: OSI Approved :: MIT License",
         "Operating System :: OS Independent",
     ],
+
     python_requires=">=3.6",
     install_requires=[
         "colorama",
