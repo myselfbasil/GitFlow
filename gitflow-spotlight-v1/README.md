@@ -19,6 +19,13 @@ GitFlow Spotlight is a beautiful, retro-themed Git GUI that provides quick acces
 3. Launch the app from your Applications folder
 4. When prompted, allow the app to use Accessibility features (for global shortcut)
 
+##Using for Development
+1.Navigate to the gitflow-spotlight directory in Terminal
+2.Run npm install to install dependencies
+3.Run npm start to launch the app in development mod
+
+
+
 ## Usage
 ### Basic Operations
 - **Toggle Window**: Press `Cmd+Shift+G` or click the tray icon
