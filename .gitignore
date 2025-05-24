@@ -61,3 +61,37 @@ venv.bak/
 .vscode/
 *.swp
 *.swo
+
+
+# Node modules
+node_modules/
+
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# OS and IDE files
+.DS_Store
+.env
+.env.local
+*.swp
+*.swo
+.idea/
+.vscode/
+
+# Build output
+dist/
+build/
+
+# Mac system files
+.DS_Store
+
+# Optional npm cache folder
+.npm/
+
+# Optional lock files
+package-lock.json
+yarn.lock
