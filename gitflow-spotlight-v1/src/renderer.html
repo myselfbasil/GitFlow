@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GitFlow Spotlight</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="floating-window visible" id="mainWindow">
+        <div class="status-indicator pulse" id="statusIndicator">● Git Ready</div>
+        
+        <div class="window-header">
+            <div class="window-title">GitFlow Spotlight</div>
+            <div class="repo-info">
+                <div class="repo-name" id="repoName">No repository selected</div>
+                <span id="currentBranch">Not a Git repository</span>
+                <div class="repo-badge" id="remoteBadge">No remote</div>
+            </div>
+            <div class="directory-info">
+                <span id="currentDirectory">Current directory: /</span>
+                <button class="directory-btn" id="selectDirectoryBtn">Change Directory</button>
+            </div>
+        </div>
+
+        <div class="search-container">
+            <input 
+                type="text" 
+                class="search-input" 
+                id="searchInput"
+                placeholder="Type a command or search..."
+                autocomplete="off"
+            >
+            <div class="search-icon">⌘</div>
+        </div>
+
+        <div class="commands-container" id="commandsList">
+            <!-- Commands will be populated by JavaScript -->
+        </div>
+
+        <div class="keyboard-hint">
+            <span>Press ↑↓ to navigate • Enter to select • Esc to close</span>
+        </div>
+    </div>
+
+    <!-- Input Modal -->
+    <div class="input-modal" id="inputModal">
+        <div class="input-modal-content">
+            <h3 id="modalTitle">Enter Input</h3>
+            <textarea id="modalInput" placeholder="Type here..." rows="4"></textarea>
+            <div class="input-modal-buttons">
+                <button class="modal-btn cancel" onclick="closeModal()">Cancel</button>
+                <button class="modal-btn" onclick="submitModal()">Confirm</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Remote Selection Modal -->
+    <div class="input-modal" id="remoteModal">
+        <div class="input-modal-content">
+            <h3>Manage Remotes</h3>
+            <div class="remotes-list" id="remotesList">
+                <!-- Remotes will be populated by JavaScript -->
+            </div>
+            <div class="add-remote-form">
+                <h4>Add New Remote</h4>
+                <div class="form-row">
+                    <input type="text" id="remoteName" placeholder="Remote name (e.g., origin)">
+                </div>
+                <div class="form-row">
+                    <input type="text" id="remoteUrl" placeholder="Remote URL">
+                </div>
+                <div class="form-row">
+                    <button class="modal-btn" id="addRemoteBtn">Add Remote</button>
+                </div>
+            </div>
+            <div class="input-modal-buttons">
+                <button class="modal-btn cancel" id="closeRemoteModalBtn">Close</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Success Notification -->
+    <div class="notification" id="notification">
+        <div class="notification-icon">✓</div>
+        <div class="notification-content">
+            <div class="notification-title">Success</div>
+            <div class="notification-message">Operation completed successfully</div>
+        </div>
+    </div>
+
+    <script src="renderer.js"></script>
+</body>
+</html>
