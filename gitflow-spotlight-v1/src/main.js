@@ -1,4 +1,4 @@
-const { app, BrowserWindow, globalShortcut, ipcMain, shell, dialog, Tray, Menu } = require('electron');
+const { app, BrowserWindow, globalShortcut, ipcMain, shell, dialog, Tray, Menu, screen } = require('electron');
 const path = require('path');
 const { spawn, exec } = require('child_process');
 const fs = require('fs');
@@ -6,6 +6,8 @@ const fs = require('fs');
 let mainWindow;
 let tray = null;
 let isVisible = false;
+let isDragging = false;
+let dragOffset = { x: 0, y: 0 };
 
 function createWindow() {
   mainWindow = new BrowserWindow({
@@ -17,6 +19,7 @@ function createWindow() {
     skipTaskbar: true,
     resizable: false,
     show: false,
+    movable: true, // Enable window movement
     webPreferences: {
       nodeIntegration: false,
       contextIsolation: true,
@@ -27,9 +30,9 @@ function createWindow() {
 
   mainWindow.loadFile(path.join(__dirname, 'renderer.html'));
 
-  // Hide window when it loses focus
+  // Hide window when it loses focus - only if not dragging
   mainWindow.on('blur', () => {
-    if (isVisible && !mainWindow.webContents.isDevToolsOpened()) {
+    if (isVisible && !mainWindow.webContents.isDevToolsOpened() && !isDragging) {
       hideWindow();
     }
   });
@@ -398,6 +401,38 @@ ipcMain.handle('remove-remote', async (event, name) => {
 
 ipcMain.handle('hide-window', () => {
   hideWindow();
+});
+
+// Window dragging handlers
+ipcMain.handle('start-drag', (event) => {
+  isDragging = true;
+  const windowPosition = mainWindow.getPosition();
+  const cursorPosition = screen.getCursorScreenPoint();
+  
+  // Calculate the offset between cursor and window position
+  dragOffset = {
+    x: cursorPosition.x - windowPosition[0],
+    y: cursorPosition.y - windowPosition[1]
+  };
+  
+  return true;
+});
+
+ipcMain.handle('drag-window', (event, cursorPosition) => {
+  if (!isDragging) return false;
+  
+  // Set the new window position based on cursor position and initial offset
+  mainWindow.setPosition(
+    cursorPosition.x - dragOffset.x,
+    cursorPosition.y - dragOffset.y
+  );
+  
+  return true;
+});
+
+ipcMain.handle('end-drag', () => {
+  isDragging = false;
+  return true;
 });
 
 ipcMain.handle('select-directory', async () => {

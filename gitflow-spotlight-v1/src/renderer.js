@@ -21,6 +21,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const notification = document.getElementById('notification');
     const notificationTitle = document.querySelector('.notification-title');
     const notificationMessage = document.querySelector('.notification-message');
+    const windowHeader = document.querySelector('.window-header');
 
     // State
     let commands = [];
@@ -158,9 +159,45 @@ document.addEventListener('DOMContentLoaded', () => {
         renderCommands();
         updateGitStatus();
         setupEventListeners();
+        setupWindowDragging();
     }
 
-    // Event Listeners
+    // Function to setup window dragging functionality
+    function setupWindowDragging() {
+        let isDragging = false;
+        
+        windowHeader.addEventListener('mousedown', (e) => {
+            // Only handle left mouse button
+            if (e.button !== 0) return;
+            
+            // Start dragging
+            isDragging = true;
+            windowHeader.classList.add('dragging');
+            window.electronAPI.startDrag();
+        });
+        
+        document.addEventListener('mousemove', (e) => {
+            if (!isDragging) return;
+            
+            // Calculate new position
+            const mousePosition = { x: e.screenX, y: e.screenY };
+            window.electronAPI.dragWindow(mousePosition);
+            
+            // Prevent text selection during drag
+            e.preventDefault();
+        });
+        
+        document.addEventListener('mouseup', () => {
+            if (!isDragging) return;
+            
+            // End dragging
+            isDragging = false;
+            windowHeader.classList.remove('dragging');
+            window.electronAPI.endDrag();
+        });
+    }
+    
+    // Setup event listeners
     function setupEventListeners() {
         // Search input
         searchInput.addEventListener('input', handleSearchInput);
