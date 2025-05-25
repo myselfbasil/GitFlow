@@ -1,7 +1,6 @@
 # Contributing
 
-Contributions are welcome, and they are greatly appreciated! Every little bit
-helps, and credit will always be given.
+Contributions to GitFlow Spotlight are welcome, and they are greatly appreciated! Every little bit helps, and credit will always be given.
 
 ## Types of Contributions
 
@@ -27,8 +26,8 @@ and "help wanted" is open to whoever wants to implement it.
 
 ### Write Documentation
 
-GitFlow CLI Tool could always use more documentation, whether as part of the
-official documentation, in docstrings, or even on the web in blog posts,
+GitFlow Spotlight could always use more documentation, whether as part of the
+official documentation, in comments, or even on the web in blog posts,
 articles, and such.
 
 ### Submit Feedback

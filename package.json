@@ -9,17 +9,28 @@
     "build": "electron-builder",
     "build-mac": "electron-builder --mac",
     "pack": "electron-builder --dir",
-    "dist": "electron-builder"
+    "dist": "electron-builder",
+    "lint": "eslint --ext .js ./src",
+    "postinstall": "electron-builder install-app-deps"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/basilshaji/GitFlow.git"
   },
   "keywords": ["git", "gui", "macos", "spotlight", "electron"],
-  "author": "Your Name",
+  "author": "Basil Shaji",
   "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/basilshaji/GitFlow/issues"
+  },
+  "homepage": "https://github.com/basilshaji/GitFlow#readme",
   "devDependencies": {
     "electron": "^25.0.0",
-    "electron-builder": "^24.0.0"
+    "electron-builder": "^24.0.0",
+    "eslint": "^8.56.0"
   },
   "build": {
-    "appId": "com.yourname.gitflow-spotlight",
+    "appId": "com.basilshaji.gitflow-spotlight",
     "productName": "GitFlow Spotlight",
     "directories": {
       "output": "dist"

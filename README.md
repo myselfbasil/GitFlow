@@ -1,97 +1,71 @@
-# GitFlow CLI Tool
+# GitFlow Spotlight
 
-GitFlow is a simple, powerful CLI tool that simplifies Git and GitHub workflows through an interactive menu-driven interface.
+GitFlow Spotlight is a beautiful, retro-themed Git GUI that provides quick access to common Git operations through a spotlight-like interface. With its orange/black color scheme and glassmorphism design, it offers a stylish and efficient way to manage your Git repositories.
 
 ## Features
 
-- Interactive menu-driven interface
-- Automated Git workflows
-- Simplified command structure
-- Color-coded output for better readability
-- Quick shortcuts for common operations
+- **Spotlight-like Interface**: Access Git commands quickly with a clean, focused command palette
+- **Global Shortcut**: Press `Cmd+Shift+G` to toggle the app window from anywhere
+- **Keyboard Navigation**: Use arrow keys to navigate and Enter to select commands
+- **Search/Filter**: Type to instantly filter available commands
+- **Shortcut Keys**: Use number keys (1-0) and letters for quick access to commands
+- **Real-time Status**: See your current branch and remote information at a glance
+- **Success Notifications**: Get animated feedback when operations complete
+- **System Tray Integration**: Access the app quickly from your menu bar
+- **Draggable Window**: Position the window anywhere on your screen
 
 ## Installation
 
-You can install GitFlow using pip:
+### macOS
 
-```bash
-pip install gitflow-cli
-```
+1. Download the GitFlow Spotlight.dmg file from the releases page
+2. Open the DMG file and drag GitFlow Spotlight to your Applications folder
+3. Launch the app from your Applications folder
+4. When prompted, allow the app to use Accessibility features (for global shortcut)
 
 ## Usage
 
-### Menu-driven Interface
+### Basic Operations
 
-Simply run `gitflow` without any arguments to launch the interactive menu:
+- **Toggle Window**: Press `Cmd+Shift+G` or click the tray icon
+- **Navigate Commands**: Use ↑↓ arrow keys or mouse
+- **Execute Command**: Press Enter or click on a command
+- **Close Window**: Press Esc or click outside the window
+- **Search Commands**: Just start typing to filter the list
+- **Move Window**: Click and drag the header area to reposition the window
 
-```bash
-gitflow
-```
+### Available Git Commands
 
-### Command-line Interface
+1. **Initialize Repository** (Shortcut: 1)
+2. **Clone Repository** (Shortcut: 2)
+3. **Add All Changes** (Shortcut: 3)
+4. **Commit Changes** (Shortcut: 4)
+5. **Push Changes** (Shortcut: 5)
+6. **Quick Push** (Add+Commit+Push) (Shortcut: q)
+7. **Pull Changes** (Shortcut: 6)
+8. **Create Branch** (Shortcut: 7)
+9. **Checkout Branch** (Shortcut: 8)
+10. **Merge Branch** (Shortcut: 9)
+11. **Git Status** (Shortcut: s)
+12. **Git Log** (Shortcut: l)
+13. **Select Directory** (Shortcut: d)
 
-GitFlow supports both interactive and command-line modes:
+## Tips
 
-#### Initialize a Repository
-```bash
-gitflow init
-```
+- Use the Quick Push command for a streamlined workflow
+- The status indicator shows when changes are detected in your repository
+- System tray menu provides quick access to common functions
+- Position the window where it's most convenient by dragging the header
 
-#### Quick Push (Add, Commit, Push in one command)
-```bash
-gitflow quickpush -m "Your commit message"
-```
+## Requirements
 
-#### Add Files
-```bash
-gitflow add file1.py file2.py
-# Or add all files
-gitflow add .
-```
+- macOS 10.14 or later
+- Git installed and configured on your system
 
-#### Commit Changes
-```bash
-gitflow commit -m "Your commit message"
-```
+## Troubleshooting
 
-#### Push to Remote
-```bash
-gitflow push
-```
-
-#### Pull from Remote
-```bash
-gitflow pull
-```
-
-#### Branch Operations
-```bash
-# Create a new branch
-gitflow branch new-feature
-
-# Checkout a branch
-gitflow checkout branch-name
-
-# Merge a branch into current branch
-gitflow merge branch-name
-```
-
-#### Repository Status
-```bash
-gitflow status
-```
-
-#### View Commit History
-```bash
-gitflow log
-# Show last 10 commits
-gitflow log -n 10
-```
-
-#### Clone Repository
-```bash
-gitflow clone https://github.com/username/repo.git
-```
+- If the global shortcut doesn't work, ensure GitFlow Spotlight has Accessibility permissions in System Preferences > Security & Privacy > Privacy > Accessibility
+- If Git commands fail, verify that Git is properly installed and configured on your system
 
 ## Development
 
