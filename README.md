@@ -73,7 +73,7 @@ GitFlow Spotlight is a beautiful, retro-themed Git GUI that provides quick acces
 
 1. Clone the repository
 ```bash
-git clone https://github.com/yourusername/gitflow.git
+git clone https://github.com/myselfbasil/gitflow.git
 cd gitflow
 ```
 
